@@ -1,0 +1,36 @@
+@mixin display-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin display-x-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin display-y-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin responsive($class) {
+  @if $class==xs {
+    @media (max-width: 991px) {
+      @content;
+    }
+  }
+  @else if $class==md {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  @else if $class==lg {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
