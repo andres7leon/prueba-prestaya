@@ -1,32 +1,68 @@
 <div class="containter-fluid cont-login">
   <div class="row h-100">
     <div class="col-sm-6 cont-form">
-      <form class="form" action="javascript:void(0);">
+
+      <form class="form" [formGroup]="formLogin" (ngSubmit)="login()" action="javascript:void(0);" autocomplete="nope" name="login" *ngIf="showLogin">
         <h2 class="sub-title">Iniciar Sesión</h2>
         <div class="cont-input">
-          <input class="input-text" type="text" placeholder="Correo Electronico" autocomplete="nope">
+          <input class="input-text" formControlName="email" name="email" type="email" placeholder="Correo Electronico" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
           <span class="material-icons">account_circle</span>
+          <small class="text-danger" *ngIf="formLogin.controls.email.touched && formLogin.controls.email.invalid">Ingresa un correo valido</small>
         </div>
         <div class="cont-input">
-          <input class="input-text" type="password" placeholder="Contraseña">
+          <input class="input-text" formControlName="password" name="password" type="password" placeholder="Contraseña">
           <span class="material-icons">lock</span>
+          <small class="text-danger" *ngIf="formLogin.controls.password.touched && formLogin.controls.password.invalid">Ingresa una contraseña</small>
         </div>
         <div class="row mt-5">
           <div class="col-6">
-            <button class="btn-login">Iniciar</button>
+            <button class="btn-login" type="submit">Iniciar</button>
           </div>
           <div class="col-6 text-right">
-            <small class="cursor-pointer"> Deseo Registrarme </small>
+            <small class="cursor-pointer" (click)="showLogin = false"> Deseo Registrarme </small>
           </div>
         </div>
       </form>
+
+      <form class="form" [formGroup]="formRegister" (ngSubmit)="register()" action="javascript:void(0);" autocomplete="nope" name="register" *ngIf="!showLogin">
+        <h2 class="sub-title">Empecemos con el registro</h2>
+        <div class="cont-input">
+          <input class="input-text" formControlName="email" type="email" placeholder="Correo">
+          <span class="material-icons">email</span>
+          <small class="text-danger" *ngIf="formRegister.controls.email.touched && formRegister.controls.email.invalid">Ingresa un correo valido</small>
+        </div>
+        <div class="cont-input">
+          <input class="input-text" formControlName="name" type="text" placeholder="Nombre">
+          <span class="material-icons">account_circle</span>
+          <small class="text-danger" *ngIf="formRegister.controls.name.touched && formRegister.controls.name.invalid">Ingresa tu nombre</small>
+        </div>
+        <div class="cont-input">
+          <input class="input-text" formControlName="nit" type="number" placeholder="Cedula" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+          <span class="material-icons">recent_actors</span>
+          <small class="text-danger" *ngIf="formRegister.controls.nit.touched && formRegister.controls.nit.invalid">Ingresa tu cedula</small>
+        </div>
+        <div class="cont-input">
+          <input class="input-text" formControlName="password" type="password" placeholder="Contraseña" minlength="6">
+          <span class="material-icons">lock</span>
+          <small class="text-danger" *ngIf="formRegister.controls.password.touched && formRegister.controls.password.invalid">la contraseña deber tener 6 caracteres mínimo</small>
+        </div>
+        <div class="row mt-5">
+          <div class="col-6">
+            <button class="btn-login" type="submit">Registrarme</button>
+          </div>
+          <div class="col-6 text-right">
+            <small class="cursor-pointer" (click)="showLogin = true"> Deseo iniciar sesión </small>
+          </div>
+        </div>
+      </form>
+
     </div>
     <div class="col-sm-6 cont-welcome">
       <div class="welcome">
         <h1 class="title">Bienvenido a PrestaYA</h1>
         <img class="logo" src="/assets/imgs/logo-white.svg" alt="logo prestaYa">
         <p class="text-description">El dinero que necesitas en el momento que lo necestias, facil rapido y sin tanto papeleo.</p>
-        <p class="text-by"> by Andres Leon 2021</p>
+        <p class="text-by"> By Andres Leon 2021</p>
       </div>
     </div>
   </div>
