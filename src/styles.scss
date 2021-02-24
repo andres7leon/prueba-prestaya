@@ -3,7 +3,10 @@
 @import "./scss/index";
 html,
 body {
+  min-height: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: $font-title;
   overflow: hidden;
    ::-webkit-scrollbar-thumb {
@@ -19,4 +22,9 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.swal2-height-auto,
+.swal2-shown {
+  height: 100% !important;
 }
