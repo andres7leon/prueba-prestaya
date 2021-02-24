@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() type = 'pending';
+  valueLoan = 139000;
 
   constructor() {
   }

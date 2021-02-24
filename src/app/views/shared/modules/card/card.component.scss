@@ -5,6 +5,7 @@
   background-color: #ffffff5c;
   overflow: hidden;
   border-radius: 1rem;
+  margin-right: 2rem;
   .text-value {
     font-weight: 300;
     text-align: center;
@@ -28,5 +29,7 @@
     border: none;
     height: 2.5rem;
     color: $color-white;
+    margin: 0;
+    @include display-center;
   }
 }

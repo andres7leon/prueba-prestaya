@@ -1,4 +1,4 @@
-<div class="container-fluid bg-warning h-100">
+<div class="container-fluid h-100">
   <div class="row ">
     <div class="col-12">
       <div class="container cont-home">
@@ -9,7 +9,7 @@
                 <h1 class="title">Hola <span class="name-user"> Andres </span> Bienvienido a PrestaYa <img class="img" src="/assets/imgs/logo-white.svg" alt="Logo"> </h1>
               </div>
               <div class="col-4">
-                saldo de 100000000
+                <app-loan></app-loan>
               </div>
               <div class="col-4 cont-user">
                 <div class="row h-100">
@@ -39,6 +39,14 @@
               <div class="cont-cards">
                 <div class="cards">
                   <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
+                  <app-card [type]="'ok'"></app-card>
                 </div>
               </div>
             </div>
@@ -46,6 +54,8 @@
               <h2 class="sub-title bg-danger">Rechazados</h2>
               <div class="cont-cards">
                 <div class="cards">
+                  <app-card [type]="'fail'"></app-card>
+                  <app-card [type]="'fail'"></app-card>
                   <app-card [type]="'fail'"></app-card>
                 </div>
               </div>

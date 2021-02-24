@@ -1,5 +1,5 @@
 <div class="card-custom">
-  <h2 class="text-value">$140.000</h2>
+  <h2 class="text-value">{{ valueLoan | currency:'$ ':'symbol':'3.0' }}</h2>
   <div class="row cont-description">
     <div class="col-6 separete">
       <p class="text-date"> Fecha de Prestamo </p>
@@ -11,6 +11,6 @@
     </div>
   </div>
   <button class="btn-pay bg-info" *ngIf="type === 'pending'">Pagar</button>
-  <button class="btn-pay bg-success" *ngIf="type === 'ok'">Pagado</button>
-  <button class="btn-pay bg-danger" *ngIf="type === 'fail'">Rechazado</button>
+  <p class="btn-pay bg-success" *ngIf="type === 'ok'">Pagado</p>
+  <p class="btn-pay bg-danger" *ngIf="type === 'fail'">Rechazado</p>
 </div>

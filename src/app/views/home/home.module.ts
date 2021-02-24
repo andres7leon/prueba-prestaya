@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from '../shared/modules/card/card.module';
+import { LoanModule } from '../shared/modules/loan/loan.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -12,7 +13,8 @@ import { CardModule } from '../shared/modules/card/card.module';
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CardModule
+    CardModule,
+    LoanModule
   ]
 })
 export class HomeModule { }

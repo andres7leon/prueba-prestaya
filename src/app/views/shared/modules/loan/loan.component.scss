@@ -1,0 +1,18 @@
+@import "~src/styles";
+.cont-loan {
+  height: 100%;
+  width: 100%;
+  background-color: $color-blue-dark;
+  margin: 0;
+  .text-loan,
+  .text-value {
+    height: 100%;
+    width: 100%;
+    @include display-center;
+    color: $color-white;
+    font-size: 1rem;
+  }
+  .text-value {
+    font-size: 2rem;
+  }
+}
