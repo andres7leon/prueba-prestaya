@@ -27,13 +27,28 @@
         <div class="row h-100">
           <div class="col-12 cont-body">
             <div class="row cont-pending">
-              <h2 class="sub-title bg-info">Pendientes</h2>
+              <h2 class="sub-title bg-info">Aprobados</h2>
+              <div class="cont-cards">
+                <div class="cards">
+                  <app-card [type]="'pending'"></app-card>
+                </div>
+              </div>
             </div>
             <div class="row cont-ok">
-              <h2 class="sub-title bg-success">Aprobados</h2>
+              <h2 class="sub-title bg-success">Pagados</h2>
+              <div class="cont-cards">
+                <div class="cards">
+                  <app-card [type]="'ok'"></app-card>
+                </div>
+              </div>
             </div>
             <div class="row cont-fail">
               <h2 class="sub-title bg-danger">Rechazados</h2>
+              <div class="cont-cards">
+                <div class="cards">
+                  <app-card [type]="'fail'"></app-card>
+                </div>
+              </div>
             </div>
           </div>
         </div>

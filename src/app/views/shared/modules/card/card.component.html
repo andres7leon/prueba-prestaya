@@ -1,0 +1,16 @@
+<div class="card-custom">
+  <h2 class="text-value">$140.000</h2>
+  <div class="row cont-description">
+    <div class="col-6 separete">
+      <p class="text-date"> Fecha de Prestamo </p>
+      <p class="text-date"> 12-02-21 </p>
+    </div>
+    <div class="col-6">
+      <p class="text-date">Fecha de Pago</p>
+      <p class="text-date"> 12-03-21 </p>
+    </div>
+  </div>
+  <button class="btn-pay bg-info" *ngIf="type === 'pending'">Pagar</button>
+  <button class="btn-pay bg-success" *ngIf="type === 'ok'">Pagado</button>
+  <button class="btn-pay bg-danger" *ngIf="type === 'fail'">Rechazado</button>
+</div>

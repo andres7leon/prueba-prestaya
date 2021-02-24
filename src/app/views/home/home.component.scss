@@ -11,6 +11,7 @@
   background: #e0e0e0b3;
   border-radius: 1rem;
   overflow: hidden;
+  backdrop-filter: blur(0.4rem);
   .cont-header {
     height: 4rem;
     overflow: hidden;
@@ -94,6 +95,27 @@
         font-weight: 400;
         opacity: 0.7;
         @include display-center;
+      }
+      .cont-cards {
+        position: absolute;
+        left: 5%;
+        top: 0;
+        height: 100%;
+        width: 94%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-left: 1rem;
+        .cards {
+          @include display-y-center;
+          height: 100%;
+          width: 100%;
+          h2 {
+            width: 30rem;
+            background-color: rgb(14, 129, 75);
+            margin: 0 1rem;
+            display: inline-table;
+          }
+        }
       }
     }
   }

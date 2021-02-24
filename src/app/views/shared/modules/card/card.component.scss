@@ -1,0 +1,32 @@
+@import "~src/styles";
+.card-custom {
+  width: 20rem;
+  height: 80%;
+  background-color: #ffffff5c;
+  overflow: hidden;
+  border-radius: 1rem;
+  .text-value {
+    font-weight: 300;
+    text-align: center;
+    padding: 0.5rem 0;
+    margin: 0;
+  }
+  .cont-description {
+    border-top: 0.1rem solid #c5c5c5;
+    border-bottom: 0.1rem solid #c5c5c5;
+    .separete {
+      border-right: 0.1rem solid #c5c5c5;
+    }
+    .text-date {
+      text-align: center;
+      font-size: 0.8rem;
+      margin: 0.5rem 0;
+    }
+  }
+  .btn-pay {
+    width: 100%;
+    border: none;
+    height: 2.5rem;
+    color: $color-white;
+  }
+}

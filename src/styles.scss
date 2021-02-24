@@ -6,6 +6,15 @@ body {
   height: 100%;
   font-family: $font-title;
   overflow: hidden;
+   ::-webkit-scrollbar-thumb {
+    background-color: $color-blue-dark;
+    border-radius: 2rem;
+  }
+   ::-webkit-scrollbar {
+    width: 0.6rem;
+    height: 0.4rem;
+    background: #52303000;
+  }
 }
 
 .cursor-pointer {
