@@ -14,7 +14,9 @@ import { LoanModule } from '../shared/modules/loan/loan.module';
     FormsModule,
     ReactiveFormsModule,
     CardModule,
-    LoanModule
+    LoanModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
