@@ -16,6 +16,8 @@ export class UserService {
     return this.http.get(`${environment.server}users`);
   }
 
-
+  userPut( user, data ): Observable<any> {
+    return this.http.put(`${environment.server}users/${user.id}/`, data);
+  }
 
 }

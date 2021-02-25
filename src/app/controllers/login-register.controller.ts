@@ -24,7 +24,6 @@ export class LoginRegisterController {
   }
 
   saveUserLs( data ) {
-    delete data.password;
     this.ls.setItem('user', data);
   }
 

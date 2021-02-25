@@ -8,12 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() type = 'pending';
-  valueLoan = 139000;
+  @Input() data = {value: 0, dateStart: 0, datePay: 0, loanPay: false};
 
   constructor() {
   }
 
   ngOnInit(): void {
+    console.log(this.data);
   }
 
 }

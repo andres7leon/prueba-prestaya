@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
         });
 
         if ( usersFind.length === 0 ) {
-
+          this.formRegister.value.loans = [];
           this.ctrl.register(this.formRegister.value).subscribe( (resRegister: any) => {
             if (resRegister.id) {
               this.formRegister.reset();

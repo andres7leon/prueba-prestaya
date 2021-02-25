@@ -3,4 +3,5 @@ export interface RegisterModel {
   name: string;
   nit: number;
   password: string;
+  loans?: Array<any>;
 }

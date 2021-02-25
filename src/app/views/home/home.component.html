@@ -6,7 +6,7 @@
           <div class="col-12 cont-header">
             <div class="row h-100">
               <div class="col-4 cont-logo">
-                <h1 class="title">Hola <span class="name-user"> Andres </span> Bienvienido a PrestaYa <img class="img" src="/assets/imgs/logo-white.svg" alt="Logo"> </h1>
+                <h1 class="title">Hola <span class="name-user"> {{nameUser.split(' ')[0] | titlecase}} </span> Bienvienido a <img class="img" src="/assets/imgs/logo-white.svg" alt="prestaYa"> </h1>
               </div>
               <div class="col-4">
                 <app-loan></app-loan>
@@ -14,8 +14,8 @@
               <div class="col-4 cont-user">
                 <div class="row h-100">
                   <div class="col-9 new-credit">
-                    <button class="btn-credit" *ngIf="showLoan" (click)="showLoan = false;">Solicitar Credito</button>
-                    <button class="btn-credit" *ngIf="!showLoan" (click)="showLoan = true">Ver Prestamos</button>
+                    <button class="btn-credit" *ngIf="showLoan" (click)="showFormLoan()">Solicitar Credito</button>
+                    <button class="btn-credit" *ngIf="!showLoan" (click)="showFormLoan()">Ver Prestamos</button>
                   </div>
                   <div class="col-3 options-user" (click)="logout()">
                     Salir <span class="material-icons">exit_to_app</span>
@@ -31,23 +31,15 @@
               <h2 class="sub-title bg-info">Aprobados</h2>
               <div class="cont-cards">
                 <div class="cards">
-                  <app-card [type]="'pending'"></app-card>
+                  <app-card *ngFor="let item of loansPending" [type]="'pending'" [data]="item"></app-card>
                 </div>
               </div>
             </div>
             <div class="row cont-ok">
               <h2 class="sub-title bg-success">Pagados</h2>
               <div class="cont-cards">
-                <div class="cards">
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
-                  <app-card [type]="'ok'"></app-card>
+                <div class="cards" *ngFor="let item of loansOk">
+                  <app-card *ngFor="let item of loansPending" [type]="'ok'" [data]="item"></app-card>
                 </div>
               </div>
             </div>
@@ -55,9 +47,7 @@
               <h2 class="sub-title bg-danger">Rechazados</h2>
               <div class="cont-cards">
                 <div class="cards">
-                  <app-card [type]="'fail'"></app-card>
-                  <app-card [type]="'fail'"></app-card>
-                  <app-card [type]="'fail'"></app-card>
+                  <app-card *ngFor="let item of loansFail" [type]="'fail'" [data]="item"></app-card>
                 </div>
               </div>
             </div>
@@ -79,7 +69,7 @@
               </div>
               <div class="row mt-5">
                 <div class="col-12">
-                  <button class="btn-login" type="submit">Solicitar</button>
+                  <button class="btn-login" type="submit" [disabled]="btnDisabled">Solicitar</button>
                 </div>
               </div>
             </form>

@@ -1,60 +1,55 @@
 {
   "users": [
     {
-      "email": "andres@hotmail.com",
+      "email": "a@7.com",
       "name": "andres leon",
-      "nit": 1010213932,
+      "nit": 1010214,
       "password": "123456",
+      "loans": [
+        {
+          "dateStart": 1614293598570,
+          "datePay": 1614488400000,
+          "loanPay": false,
+          "value": 240000,
+          "state": true
+        },
+        {
+          "dateStart": 1614293755543,
+          "datePay": 1614402000000,
+          "loanPay": false,
+          "value": 10000,
+          "state": true
+        },
+        {
+          "dateStart": 1614293939335,
+          "datePay": 1614402000000,
+          "loanPay": false,
+          "value": 22222,
+          "state": true
+        },
+        {
+          "dateStart": 1614293992410,
+          "datePay": null,
+          "loanPay": false,
+          "value": 10000,
+          "state": true
+        },
+        {
+          "dateStart": 1614294025802,
+          "datePay": 1614402000000,
+          "loanPay": false,
+          "value": 800000,
+          "state": true
+        },
+        {
+          "dateStart": 1614294639746,
+          "datePay": null,
+          "loanPay": false,
+          "value": 20000,
+          "state": false
+        }
+      ],
       "id": 1
-    },
-    {
-      "email": "prueba1@zinobe.com",
-      "name": "prueba uno",
-      "nit": 123456,
-      "password": "123456",
-      "id": 2
-    },
-    {
-      "email": "prueba2@zinobe.com",
-      "name": "prueba dos",
-      "nit": 1234567,
-      "password": "123456",
-      "id": 3
-    },
-    {
-      "email": "prueba3@zinobe.com",
-      "name": "prueba tres",
-      "nit": 12345678,
-      "password": "123456",
-      "id": 4
-    },
-    {
-      "email": "preuba4@zinobe.com",
-      "name": "prueba cuatro",
-      "nit": 123456789,
-      "password": "123456",
-      "id": 5
-    },
-    {
-      "email": "prueba5@zinobe.com",
-      "name": "prueba cinco",
-      "nit": 12345678910,
-      "password": "123453",
-      "id": 6
-    },
-    {
-      "email": "prueba22@zinobe.com",
-      "name": "andres leon",
-      "nit": 1234563,
-      "password": "qweqweqweqwe",
-      "id": 7
-    },
-    {
-      "email": "1@1.com",
-      "name": "uno",
-      "nit": 1,
-      "password": "123456",
-      "id": 8
     }
   ]
 }
