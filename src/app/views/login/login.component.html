@@ -48,7 +48,7 @@
         </div>
         <div class="row mt-5">
           <div class="col-6">
-            <button class="btn-login" type="submit">Registrarme</button>
+            <button class="btn-login" type="submit" [disabled]="disabledSumbit"><span *ngIf="!disabledSumbit">Registrarme</span> <span class="spinner-border text-white" *ngIf="disabledSumbit"></span></button>
           </div>
           <div class="col-6 text-right">
             <small class="cursor-pointer" (click)="showLogin = true"> Deseo iniciar sesión </small>

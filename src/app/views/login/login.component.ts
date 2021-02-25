@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRegisterController } from '../../controllers/login-register.controller';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,8 +14,9 @@ export class LoginComponent implements OnInit {
   regexPass = '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$';
   formLogin: FormGroup;
   formRegister: FormGroup;
+  disabledSumbit = false;
 
-  constructor( private form: FormBuilder, private ctrl: LoginRegisterController) {
+  constructor( private form: FormBuilder, private ctrl: LoginRegisterController, private router: Router) {
     this.createFormLogin();
     this.createFormRegister();
   }
@@ -30,8 +32,7 @@ export class LoginComponent implements OnInit {
         nit: ['', [ Validators.required ] ],
         password: ['', [ Validators.required ] ]
       }
-    )
-
+    );
   }
 
   createFormLogin() {
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
         email: ['', [ Validators.required, Validators.pattern(this.regexPass)] ],
         password: ['', [ Validators.required ] ]
       }
-    )
+    );
   }
 
   login() {
@@ -51,7 +52,43 @@ export class LoginComponent implements OnInit {
 
   register() {
     if ( this.formRegister.valid ) {
-      console.log('registro ok');
+
+      this.ctrl.users().subscribe( (res: any) => {
+        const usersFind = res.filter( item => {
+          if (item.email === this.formRegister.value.email || item.nit === this.formRegister.value.nit) {
+            return item;
+          }
+        });
+
+        if ( usersFind.length === 0 ) {
+
+          this.ctrl.register(this.formRegister.value).subscribe( (resRegister: any) => {
+            if (resRegister.id) {
+              this.formRegister.reset();
+              Swal.fire({
+                icon: 'success',
+                text: 'Que bien ya eres parte de prestaYa :)',
+                heightAuto: false,
+              }).then( () => {
+                this.router.navigate(['inicio']);
+              });
+            }
+          });
+
+        } else {
+
+          Swal.fire({
+            icon: 'info',
+            text: 'Parece que el correo o cedula ya se encuentran registrados',
+            heightAuto: false,
+          });
+
+        }
+      });
+
+
+    } else {
+      Swal.fire({ text: 'Completa los datos para poder registrarte', heightAuto: false});
     }
   }
 

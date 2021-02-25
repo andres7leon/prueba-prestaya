@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   valueLoanBase: 1000000,
+  server: 'http://localhost:3000/'
 };
 
 /*

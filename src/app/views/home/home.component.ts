@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-home',
@@ -27,8 +27,7 @@ export class HomeComponent implements OnInit {
         valueLoan: ['', [ Validators.required, Validators.min(10000) , Validators.max(this.valueLoanBase)] ],
         datePay: ['', [] ],
       }
-    )
-
+    );
   }
 
   applyLoan(){
@@ -45,6 +44,6 @@ export class HomeComponent implements OnInit {
       icon: 'error',
       confirmButtonText: 'Cool',
       heightAuto: false
-    })
+    });
   }
 }

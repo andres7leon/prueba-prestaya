@@ -7,16 +7,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginRegisterService {
+export class UserService {
 
   constructor( private http: HttpClient ) { }
 
-  login() {
-    console.log('entraa para hacer logn');
+
+  allUsers(): Observable<any> {
+    return this.http.get(`${environment.server}users`);
   }
 
-  register( data: RegisterModel ): Observable<any> {
-    return this.http.post(`${environment.server}users`, data);
-  }
+
 
 }
