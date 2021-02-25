@@ -147,7 +147,7 @@
           transition: all 0.4s;
           font-size: 0.9rem;
           background: none;
-          border-bottom: 0.01rem solid $color-gray-light;
+          border-bottom: 0.01rem solid $color-blue-dark;
           &:focus {
             border-bottom: 0.01rem solid $color-blue-light;
           }
@@ -156,14 +156,14 @@
           }
         }
         .material-icons {
-          color: $color-gray-light;
+          color: $color-blue-light;
           position: absolute;
           left: 2%;
           top: 26%;
           font-size: 1.5rem;
           transition: all 0.4s;
           &.active {
-            color: $color-blue-light;
+            color: $color-blue-dark;
           }
         }
       }

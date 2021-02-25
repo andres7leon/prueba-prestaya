@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HomeController } from 'src/app/controllers/home.controller';
 import Swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 @Component({
@@ -14,7 +16,7 @@ export class HomeComponent implements OnInit {
   todate = new Date();
   showLoan = true;
 
-  constructor(private form: FormBuilder) {
+  constructor(private form: FormBuilder, private ctrl: HomeController, private router: Router) {
     this.createFormLoan();
   }
 
@@ -34,6 +36,11 @@ export class HomeComponent implements OnInit {
     if ( this.formLoan.valid ) {
       console.log('this.formLoan', this.formLoan);
     }
+  }
+
+  logout() {
+    this.ctrl.logout();
+    this.router.navigate(['']);
   }
 
   newLoan() {

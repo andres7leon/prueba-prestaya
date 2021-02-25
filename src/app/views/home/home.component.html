@@ -17,7 +17,7 @@
                     <button class="btn-credit" *ngIf="showLoan" (click)="showLoan = false;">Solicitar Credito</button>
                     <button class="btn-credit" *ngIf="!showLoan" (click)="showLoan = true">Ver Prestamos</button>
                   </div>
-                  <div class="col-3 options-user">
+                  <div class="col-3 options-user" (click)="logout()">
                     Salir <span class="material-icons">exit_to_app</span>
                   </div>
                 </div>
@@ -66,7 +66,7 @@
         <div class="row justify-content-center cont-form-loan" [class.d-none]="showLoan">
           <div class="col-5">
             <form class="form" [formGroup]="formLoan" (ngSubmit)="applyLoan()" action="javascript:void(0);" autocomplete="nope" name="login">
-              <h2 class="sub-title">Cuentanos cuanto Necesitas</h2>
+              <h2 class="sub-title">Cuentanos cuanto necesitas</h2>
               <div class="cont-input">
                 <input class="input-text" formControlName="valueLoan" name="loan" type="number" placeholder="200.000" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
                 <span class="material-icons">monetization_on</span>
