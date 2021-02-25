@@ -46,7 +46,19 @@ export class LoginComponent implements OnInit {
 
   login() {
     if ( this.formLogin.valid ) {
-      this.ctrl.login();
+      this.ctrl.login(this.formLogin.value).subscribe( (res: any) => {
+        if ( res.length > 0 ) {
+          this.router.navigate(['inicio']);
+        } else {
+          Swal.fire({
+            icon: 'warning',
+            text: 'Upps! algo no está bien, valida tu usuario o contraseña',
+            heightAuto: false,
+          });
+        }
+      });
+    } else {
+      Swal.fire({ text: 'Completa los datos para poder iniciar sesión', heightAuto: false});
     }
   }
 
@@ -85,7 +97,6 @@ export class LoginComponent implements OnInit {
 
         }
       });
-
 
     } else {
       Swal.fire({ text: 'Completa los datos para poder registrarte', heightAuto: false});

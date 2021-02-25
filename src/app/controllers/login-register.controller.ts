@@ -10,8 +10,8 @@ export class LoginRegisterController {
 
   constructor( private seLogin: LoginRegisterService, private seUsers: UserService ) { }
 
-  login() {
-    this.seLogin.login();
+  login( data ): Observable<any> {
+    return this.seLogin.login( data );
   }
 
   register( data ): Observable<any> {
