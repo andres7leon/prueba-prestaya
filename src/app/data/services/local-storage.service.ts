@@ -10,15 +10,15 @@ export class LocalStorageService {
   }
 
   setItem( nameItem, item ){
-    sessionStorage.setItem(nameItem, JSON.stringify(item));
+    localStorage.setItem(nameItem, JSON.stringify(item));
   }
 
   getItem( nameItem ){
-    return JSON.parse(sessionStorage.getItem(nameItem));
+    return JSON.parse(localStorage.getItem(nameItem));
   }
 
   deleteItem( name ) {
-    sessionStorage.removeItem(name);
+    localStorage.removeItem(name);
   }
 
 }

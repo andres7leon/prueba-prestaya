@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit {
   login() {
     if ( this.formLogin.valid ) {
       this.ctrl.login(this.formLogin.value).subscribe( (res: any) => {
+
         if ( res.length > 0 ) {
+          this.ctrl.saveUserLs(res[0]);
           this.router.navigate(['inicio']);
         } else {
           Swal.fire({
@@ -56,6 +58,7 @@ export class LoginComponent implements OnInit {
             heightAuto: false,
           });
         }
+
       });
     } else {
       Swal.fire({ text: 'Completa los datos para poder iniciar sesión', heightAuto: false});
@@ -77,6 +80,7 @@ export class LoginComponent implements OnInit {
           this.ctrl.register(this.formRegister.value).subscribe( (resRegister: any) => {
             if (resRegister.id) {
               this.formRegister.reset();
+              this.ctrl.saveUserLs(resRegister);
               Swal.fire({
                 icon: 'success',
                 text: 'Que bien ya eres parte de prestaYa :)',
@@ -101,6 +105,7 @@ export class LoginComponent implements OnInit {
     } else {
       Swal.fire({ text: 'Completa los datos para poder registrarte', heightAuto: false});
     }
+
   }
 
 }

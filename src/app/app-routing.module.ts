@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RouteGuardService } from './data/guards/route-guard.service';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
+    canActivate: [RouteGuardService]
   }
 ];
 
