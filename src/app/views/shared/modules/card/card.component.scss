@@ -33,3 +33,21 @@
     @include display-center;
   }
 }
+
+@include responsive(xs) {
+  .card-custom {
+    width: 19rem;
+    .text-value {
+      font-size: 1.5rem;
+    }
+    .cont-description {
+      .text-date {
+        margin-bottom: 0.3rem;
+        margin-top: 0.3rem;
+      }
+    }
+    .btn-pay {
+      height: 2rem;
+    }
+  }
+}

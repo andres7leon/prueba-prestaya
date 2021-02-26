@@ -16,3 +16,16 @@
     font-size: 2rem;
   }
 }
+
+@include responsive(xs) {
+  .cont-loan {
+    .text-loan {
+      font-size: 0.9rem;
+      justify-content: flex-start;
+    }
+    .text-value {
+      font-size: 1.2rem;
+      justify-content: flex-start;
+    }
+  }
+}

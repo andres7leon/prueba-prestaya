@@ -36,6 +36,10 @@
           font-weight: 500;
           margin: 0 0.5rem;
         }
+        .material-icons {
+          position: absolute;
+          right: 1rem;
+        }
       }
     }
     .cont-user {
@@ -178,6 +182,53 @@
         transition: all 0.4s;
         &:hover {
           background-color: $color-blue-light;
+        }
+      }
+    }
+  }
+}
+
+@include responsive(xs) {
+  .cont-home {
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    .cont-header {
+      height: 9rem;
+      .cont-logo {
+        height: 3rem;
+        .title {
+          .img {
+            height: 1.5rem;
+            margin: -0.7rem 0 0 0.4rem;
+          }
+        }
+      }
+      .cont-user {
+        height: 3rem;
+        .new-credit {
+          .btn-credit {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .cont-body {
+      height: calc(100% - 7rem);
+      .cont-pending,
+      .cont-ok,
+      .cont-fail {
+        overflow: hidden;
+        .sub-title {
+          height: 1.8rem;
+          width: 100%;
+          top: 36%;
+          left: -47%;
+        }
+        .cont-cards {
+          left: 9%;
+          width: 90%;
         }
       }
     }
