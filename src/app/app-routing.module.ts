@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
     canActivate: [RouteGuardService]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./views/admin/admin.module').then(m => m.AdminModule)
   }
 ];
 

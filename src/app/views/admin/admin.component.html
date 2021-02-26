@@ -1,0 +1,76 @@
+<div class="container bg-light py-5">
+  <h1 class="text-center text-secondary">Solo para Adminsitradores, encontraras todos los usuarios registrados y sus creditos</h1>
+  <div class="row mt-5 pb-5">
+    <div class="col-12 table-responsive-lg">
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Cedula</th>
+            <th scope="col"># de creditos</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.nit}}</td>
+            <td>{{item.loans.length}}</td>
+            <td><button class="btn btn-info btn-block" data-toggle="modal" data-target="#modalDetail" (click)="changeDataModal(item)">Ver Detalle</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12 my-3">
+      <a href="/inicio" class="text-info">Ir al home</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class=" modal-header ">
+        <h5 class="modal-title " id="modalDetailLongTitle ">Detalle creditos de: <strong>{{nameUser}}</strong></h5>
+        <button type="button " class="close " data-dismiss="modal" aria-label="Close ">
+          <span aria-hidden="true ">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class="container-fluid ">
+          <div class="row ">
+            <div class="col-12 table-responsive table-hover text-nowrap">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col-6"># Credito</th>
+                    <th scope="col-6">Valor</th>
+                    <th scope="col-6">Estado Aprobación</th>
+                    <th scope="col-6">Estado del pago</th>
+                    <th scope="col-6">Fecha de solicitud</th>
+                    <th scope="col-6">Fecha de pago</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dataLoans ">
+                    <td>{{item.numberCredit}}</td>
+                    <td>{{item.value | currency:'$ ':'symbol':'3.0'}}</td>
+                    <td [class.text-success]="item.state" [class.text-danger]="!item.state">{{(item.state ? 'Aprobado' : 'Rechazado')}}</td>
+                    <td [class.text-success]="item.loanPay" [class.text-info]="!item.loanPay">{{(!item.loanPay ? 'Pendiente' : 'Pagado')}}</td>
+                    <td>{{item.dateStart | date }}</td>
+                    <td>{{item.datePay | date }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
