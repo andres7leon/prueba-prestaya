@@ -36,4 +36,25 @@ json-server --watch db.json
 - Se usaron interfaces o modelos para los datos
 - Se genera una estructura la cual puede ser escalable
 
-## Espero sea de su agradado el poder correr y revisar este proyecto el cual pude culminar en 4 días, me hubiera gustado poder hacer las pruebas unitarias, pero lastimosamente no me alcanzo el tiempo.
+# Estrucutra del proyecto
+
+```sh
+---app/
+   |---controllers/
+   |
+   |---data/
+   |   |---guards/
+   |   |---models/
+   |   |---services/
+   |
+   |---views/
+   |   |---admin/
+   |   |---home/
+   |   |---login/
+   |   |---shared/
+   |       |---event-lister/
+   |       |---modules/
+   | 
+```
+
+## Espero sea de su agradado el poder correr y revisar este proyecto el cual pude culminar en 4 días, me hubiera gustado poder hacer las pruebas unitarias, pero lastimosamente no me alcanzo el tiempo. 
