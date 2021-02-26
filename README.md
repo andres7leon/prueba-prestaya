@@ -1,27 +1,39 @@
-# Zinobe
+# Versiones para desarrollar el proyecto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+- Angular: 9.1
+- NodeJS: 12.17
 
-## Development server
+# Librerías Implementadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Bootstrap
+- Material-design-icons
+- Sweetalert2
+- Json-server
 
-## Code scaffolding
+# Correr el proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+npm i
 
-## Build
+ng serve
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+json-server --watch db.json
+```
+# Validaciones que se tuvieron presente
 
-## Running unit tests
+- Se valida registro de usuario que la cedula y correo no existan para registrarse
+- Cuando se es un usuario nuevo siempre se va a aprobar el primer crédito
+- Las aprobaciones después del primer crédito es aleatoriamente
+- No se pueden pedir créditos nuevos si tiene uno activo y este no se ha pagado
+- No se permite pedir un crédito si ya tiene un crédito rechazado
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+# A tener en cuenta
+- Se ajusta toda la experiencia a responsive 
+- Se crea una vista Admin para poder ver todos los usuarios y créditos que se han registrado
+- El valor base de cuanto se puede prestar están en los enviroments
+- Se crearon rutas con lazyLoad
+- Se usaron interfaces o modelos para los datos
+- Se genera una estructura la cual puede ser escalable
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Espero sea de su agradado el poder correr y revisar este proyecto el cual pude culminar en 4 días, me hubiera gustado poder hacer las pruebas unitarias, pero lastimosamente no me alcanzo el tiempo.
