@@ -1,1 +1,13 @@
 @import "~src/styles";
+.cont-admin {
+  height: 100%;
+  overflow: auto;
+}
+
+@include responsive(xs) {
+  .cont-admin {
+    .text-title {
+      font-size: 1rem;
+    }
+  }
+}
