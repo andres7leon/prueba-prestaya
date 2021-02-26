@@ -1,7 +1,10 @@
 <div class="containter-fluid cont-login">
   <div class="row h-100">
+    <div class="col-12 cont-welcome-responsive d-flex d-sm-none">
+      <h1 class="title">Bienvenido a PrestaYA</h1>
+      <img class="logo" src="/assets/imgs/logo-white.svg" alt="logo prestaYa">
+    </div>
     <div class="col-sm-6 cont-form">
-
       <form class="form" [formGroup]="formLogin" (ngSubmit)="login()" action="javascript:void(0);" autocomplete="nope" name="login" *ngIf="showLogin">
         <h2 class="sub-title">Iniciar Sesión</h2>
         <div class="cont-input">
@@ -55,9 +58,11 @@
           </div>
         </div>
       </form>
-
+      <div class="text-go-admin">
+        <a href="/admin">Eres administrador da click</a>
+      </div>
     </div>
-    <div class="col-sm-6 cont-welcome">
+    <div class="col-sm-6 cont-welcome d-none d-sm-flex">
       <div class="welcome">
         <h1 class="title">Bienvenido a PrestaYA</h1>
         <img class="logo" src="/assets/imgs/logo-white.svg" alt="logo prestaYa">

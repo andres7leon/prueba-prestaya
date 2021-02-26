@@ -66,6 +66,14 @@
       }
     }
   }
+  .text-go-admin {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
 }
 
 .cont-welcome {
@@ -108,6 +116,40 @@
       margin: 0 auto;
       left: 0;
       right: 0;
+    }
+  }
+}
+
+@include responsive(xs) {
+  .cont-login {
+    .cont-welcome-responsive {
+      height: 5.9rem;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      top: 0;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      background: #16222A;
+      background: linear-gradient( -33deg, #3A6073, #16222A);
+      .title {
+        font-size: 1.4rem;
+        color: $color-white;
+      }
+      .logo {
+        width: 2.7rem;
+        margin-top: -1.9rem;
+        margin-left: 0.4rem;
+      }
+    }
+    .cont-form {
+      .form {
+        width: 90%;
+      }
     }
   }
 }
