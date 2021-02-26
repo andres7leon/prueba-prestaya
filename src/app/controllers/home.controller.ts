@@ -20,8 +20,14 @@ export class HomeController {
 
   addLoan( data ): Observable<any> {
     let dataSend = this.getUser();
-    console.log('dataSend', dataSend);
     dataSend.loans.push(data);
+    this.ls.setItem('user', dataSend);
+    return this.userService.userPut(this.getUser(), dataSend);
+  }
+
+  updateLoan( data ): Observable<any> {
+    let dataSend = this.getUser();
+    dataSend.loans = data;
     this.ls.setItem('user', dataSend);
     return this.userService.userPut(this.getUser(), dataSend);
   }

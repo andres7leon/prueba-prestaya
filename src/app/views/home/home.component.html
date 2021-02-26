@@ -31,7 +31,7 @@
               <h2 class="sub-title bg-info">Aprobados</h2>
               <div class="cont-cards">
                 <div class="cards">
-                  <app-card *ngFor="let item of loansPending" [type]="'pending'" [data]="item"></app-card>
+                  <app-card *ngFor="let item of loansPending" [type]="'pending'" [data]="item" (payCredit)="payCredit($event)"></app-card>
                 </div>
               </div>
             </div>
@@ -39,7 +39,7 @@
               <h2 class="sub-title bg-success">Pagados</h2>
               <div class="cont-cards">
                 <div class="cards" *ngFor="let item of loansOk">
-                  <app-card *ngFor="let item of loansPending" [type]="'ok'" [data]="item"></app-card>
+                  <app-card *ngFor="let item of loansOk" [type]="'ok'" [data]="item"></app-card>
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import { HomeController } from 'src/app/controllers/home.controller';
 import Swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 import { LoanModel } from '../../data/models/loan';
+import { LoanBaseEvent } from '../shared/event-lister/loan-base.event';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,33 +19,53 @@ export class HomeComponent implements OnInit {
   showLoan = true;
   btnDisabled = false;
   nameUser = '';
+  loansAll = [];
   loansPending = [];
   loansOk = [];
   loansFail = [];
+  valuePending = 0;
 
-  constructor(private form: FormBuilder, private ctrl: HomeController, private router: Router) {
+  constructor(private form: FormBuilder, private ctrl: HomeController, private router: Router, private loanBaseEvent: LoanBaseEvent) {
     this.createFormLoan();
   }
 
   ngOnInit(): void {
     this.nameUser = this.ctrl.getUser().name;
-    let loans = this.ctrl.getUser().loans;
-    this.loansPending = loans.filter( i => !i.loanPay && i.state );
-    this.loansOk = loans.filter( i => i.loanPay && i.state );
-    this.loansFail = loans.filter( i => !i.state );
+    this.getloans();
+  }
+
+  getloans() {
+    this.loansAll = this.ctrl.getUser().loans;
+    this.loansPending = this.loansAll.filter( i => !i.loanPay && i.state );
+    this.loansOk = this.loansAll.filter( i => i.loanPay && i.state );
+    this.loansFail = this.loansAll.filter( i => !i.state );
+
+    if (this.loansPending.length > 0 ) {
+      this.valuePending = this.loansPending[0].value;
+    } else {
+      this.valuePending = 0;
+    }
+
+    this.loanBaseEvent.changeLoanBase(this.valuePending);
   }
 
   showFormLoan() {
-    console.log(this.ctrl.getUser().loans.filter( i => !i.state));
     if ( this.ctrl.getUser().loans.filter( i => !i.state).length > 0 ) {
-      console.log('tiene creditos rechazados');
       Swal.fire({
         icon: 'warning',
         text: 'Disculpa tienes un credito rechazado por esto no podras solicitar mas creditos, si consideras que es un error puedes comunicarte con nosotros.',
         heightAuto: false,
       });
     } else {
-      this.showLoan = false;
+      if ( this.ctrl.getUser().loans.filter( i => !i.loanPay).length > 0 ) {
+        Swal.fire({
+          icon: 'warning',
+          text: 'No podemos prestarte más dinero hasta que pagues el crédito pendiente.',
+          heightAuto: false,
+        });
+      } else {
+        this.showLoan = !this.showLoan;
+      }
     };
   }
 
@@ -66,7 +87,8 @@ export class HomeComponent implements OnInit {
         dateStart: new Date().getTime(),
         datePay:  (this.formLoan.value.datePay) ? new Date(`${converDate[1]}-${converDate[2]}-${converDate[0]}`).getTime() : null,
         loanPay: false,
-        value: this.formLoan.value.valueLoan
+        value: this.formLoan.value.valueLoan,
+        numberCredit: Number( '7' + new Date().getTime())
       }
       if ( userLoan.length === 0 ) {
         dataLoan.state = true;
@@ -91,6 +113,7 @@ export class HomeComponent implements OnInit {
         text: 'Excelentes noticias tu préstamo fue aprobado 😊',
         heightAuto: false,
       }).then( () => {
+        this.getloans();
         this.formLoan.reset();
         this.btnDisabled = false;
         this.showLoan = true;
@@ -105,6 +128,7 @@ export class HomeComponent implements OnInit {
         text: 'Upps! parece que no podemos hacerte este prestamos si consideras que es un error puedes comunicarte con nosotros.',
         heightAuto: false,
       }).then( () => {
+        this.getloans();
         this.formLoan.reset();
         this.btnDisabled = false;
         this.showLoan = true;
@@ -117,4 +141,15 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  payCredit(data) {
+    this.ctrl.updateLoan( this.loansAll ).subscribe( (res: any) => {
+      Swal.fire({
+        icon: 'success',
+        text: 'Tu pago fue éxito',
+        heightAuto: false,
+      }).then( () => {
+        this.getloans();
+      });;
+    });
+  }
 }

@@ -10,5 +10,5 @@
       <p class="text-date"> {{ data.datePay | date }} </p>
     </div>
   </div>
-  <button class="btn-pay bg-info" *ngIf="type === 'pending'">Pagar</button>
+  <button class="btn-pay bg-info" *ngIf="type === 'pending'" (click)="payCreditNow()">Pagar</button>
 </div>

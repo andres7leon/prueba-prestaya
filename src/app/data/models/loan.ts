@@ -4,4 +4,5 @@ export interface LoanModel {
   datePay?: number;
   state?: boolean;
   loanPay: boolean;
+  numberCredit: number;
 }
